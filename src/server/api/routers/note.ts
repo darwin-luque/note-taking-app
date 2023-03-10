@@ -13,7 +13,7 @@ export const noteRouter = createTRPCRouter({
     .input(
       z.object({ title: z.string(), content: z.string(), topicId: z.string() })
     )
-    .query(({ ctx, input }) => {
+    .mutation(({ ctx, input }) => {
       return ctx.prisma.note.create({
         data: {
           title: input.title,
